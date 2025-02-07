@@ -1,0 +1,19 @@
+# Digest of the golang:latest image
+#
+# Fetch the digest of an image by running:
+# `docker inspect --format='{{index .RepoDigests 0}}' golang:latest`
+FROM golang@sha256:927112936d6b496ed95f55f362cc09da6e3e624ef868814c56d55bd7323e0959
+
+WORKDIR /app
+
+COPY ./src/go.mod ./src/go.sum ./
+
+RUN go mod download
+
+COPY ./src/main.go .
+
+RUN go build -o app main.go
+
+EXPOSE 8080
+
+CMD ["./app"]
