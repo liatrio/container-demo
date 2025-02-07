@@ -32,7 +32,7 @@ wait
 echo
 echo
 
-# p "what happens when we rebuild?"
+p "what happens when we rebuild?"
 echo
 echo
 
@@ -44,7 +44,7 @@ wait
 
 echo
 echo
-# p "what happens when we invalidate the cache?"
+p "what happens when we invalidate the cache?"
 echo
 echo
 wait
@@ -59,7 +59,7 @@ clear
 pei "bat Dockerfile.basic.pinned Dockerfile.cache.optimized -l Dockerfile"
 echo
 echo
-# p "Why does this optimize the cache?"
+p "Why does this optimize the cache?"
 wait
 
 # Get a baseline time for the build with separate COPY commands
@@ -68,7 +68,7 @@ wait
 
 echo
 echo
-# p "Let's invalidate the cache and see how long it takes"
+p "Let's invalidate the cache and see how long it takes"
 wait
 echo
 echo
@@ -77,7 +77,7 @@ wait
 
 
 clear
-# p "Now let's explore image sizing"
+p "Now let's explore image sizing"
 echo
 echo
 pei "bat Dockerfile.slim -l Dockerfile"
