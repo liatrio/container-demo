@@ -17,9 +17,10 @@ clear
 # repl - Enters REPL mode, allowing newly typed commands to be executed within the script. Type 'exit' to leave REPL mode.
 
 # SETUP environment
-docker system prune -a -f
-docker pull golang@sha256:927112936d6b496ed95f55f362cc09da6e3e624ef868814c56d55bd7323e0959 -q
-docker pull golang@sha256:2c49857f2295e89b23b28386e57e018a86620a8fede5003900f2d138ba9c4037 -q
+docker rmi $(docker images "container-demo*" -q) 2>/dev/null || true
+docker builder prune -f
+docker pull golang@sha256:927112936d6b496ed95f55f362cc09da6e3e624ef868814c56d55bd7323e0959
+docker pull golang@sha256:2c49857f2295e89b23b28386e57e018a86620a8fede5003900f2d138ba9c4037
 clear
 # END of environment setup
 
