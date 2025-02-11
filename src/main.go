@@ -15,7 +15,7 @@ import (
 func main() {
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
-		c.String(200, "hello Liatrio")
+		c.String(200, "hello world")
 	})
 	r.Run(":8080")
 }
