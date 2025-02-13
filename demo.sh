@@ -18,7 +18,7 @@ clear
 
 # SETUP environment
 docker rmi $(docker images "container-demo*" -q) 2>/dev/null || true
-docker builder prune -f
+docker builder prune -a -f
 docker pull golang@sha256:927112936d6b496ed95f55f362cc09da6e3e624ef868814c56d55bd7323e0959
 docker pull golang@sha256:2c49857f2295e89b23b28386e57e018a86620a8fede5003900f2d138ba9c4037
 clear
@@ -45,7 +45,7 @@ wait
 
 echo
 echo
-p "what happens when we invalidate the cache?"
+p "what happens when add a new feature?"
 echo
 echo
 wait
@@ -69,7 +69,7 @@ wait
 
 echo
 echo
-p "Let's invalidate the cache and see how long it takes"
+p "Let's update our application"
 wait
 echo
 echo
@@ -81,11 +81,10 @@ clear
 p "Now let's explore image sizing"
 echo
 echo
-pei "bat Dockerfile.slim -l Dockerfile"
+pei "bat Dockerfile.cache.optimized Dockerfile.slim -l Dockerfile"
 wait
 
 pei "docker build -t container-demo-slim -f Dockerfile.slim ."
-wait
 
 pei "docker images --format \"{{.Repository}}:{{.Tag}} {{.Size}}\" | rg container-demo"
 wait
@@ -96,7 +95,6 @@ pei "bat Dockerfile.slim.multi -l Dockerfile"
 wait
 
 pei "docker build -t container-demo-slim-multi -f Dockerfile.slim.multi ."
-wait
 
 # Show the image sizes
 pei "docker images --format \"{{.Repository}}:{{.Tag}} {{.Size}}\" | rg container-demo"
