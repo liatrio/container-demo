@@ -24,7 +24,6 @@ docker pull golang@sha256:2c49857f2295e89b23b28386e57e018a86620a8fede5003900f2d1
 clear
 # END of environment setup
 
-wait
 # Show the v1 Dockerfile to highlight the key parts of a Dockerfile
 pei "bat Dockerfile.basic.pinned -l Dockerfile"
 wait
@@ -33,7 +32,7 @@ wait
 echo
 echo
 
-p "what happens when we rebuild?"
+p "What happens when we rebuild?"
 echo
 echo
 
@@ -45,7 +44,7 @@ wait
 
 echo
 echo
-p "what happens when add a new feature?"
+p "What happens to build time when we add a new feature?"
 echo
 echo
 wait
@@ -60,7 +59,7 @@ clear
 pei "bat Dockerfile.basic.pinned Dockerfile.cache.optimized -l Dockerfile"
 echo
 echo
-p "Why does this optimize the cache?"
+p "Why do you think this will optimize build times?"
 wait
 
 # Get a baseline time for the build with separate COPY commands
@@ -69,7 +68,7 @@ wait
 
 echo
 echo
-p "Let's update our application"
+p "What happens to build time when we add a new feature?"
 wait
 echo
 echo
