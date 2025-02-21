@@ -2,7 +2,7 @@
 #
 # Fetch the digest of an image by running:
 # `docker inspect --format='{{index .RepoDigests 0}}' golang:latest`
-FROM golang@sha256:927112936d6b496ed95f55f362cc09da6e3e624ef868814c56d55bd7323e0959
+FROM golang:latest@sha256:927112936d6b496ed95f55f362cc09da6e3e624ef868814c56d55bd7323e0959
 
 WORKDIR /app
 
